@@ -1,0 +1,32 @@
+extends docwrapper
+
+//- Override any config settings by appending to the config block
+append config
+	- var MetaDesc = 'Learn how to use JavaScript processes with Jade variables'
+	
+	- var updateBodyClass = BodyClasses.push('extraclass', 'secondclass')
+	
+	- var GoogleFonts = GoogleFonts.concat('|Poiret+One')
+	
+	- var thisPage = 'JS Processes and Jade Vars'
+	- var PageTitle = PageTitle.concat(' | ' + thisPage)
+
+block content
+	//- Variable used in text via interpolation
+	h1 #{thisPage}
+	
+	p(style="font-family: Poiret One;font-size:2em") By concatenating to the "GoogleFonts" variable we've also loaded the extra font Poiret One
+	
+	p You can also use JavaScript math processes on Jade vars. For example, let's start with the number:
+
+	- var start_num = 2254.3665
+
+	code #{start_num}
+
+	p Now let's use JavaScript's <code>floor()</code> method to round it down to the nearest whole number:
+
+	- var rounded_down = Math.floor(start_num)
+
+	code #{rounded_down}
+	
+	
